@@ -1,4 +1,4 @@
-package com.trustly.test.filezmonitor;
+package com.trustly.robocops;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

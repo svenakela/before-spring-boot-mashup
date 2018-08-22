@@ -1,5 +1,6 @@
 package com.trustly.robocops;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +20,12 @@ public class MyLittleConfig {
     @Bean
     public CacheService robocopCache(final CacheProperties properties) {
         return new CacheServiceImpl(properties);
+    }
+
+    @Bean
+    @ConfigurationProperties(prefix = "trustly.robocops.cache")
+    public CacheProperties cacheProperties() {
+        return new CacheProperties();
     }
 
 }

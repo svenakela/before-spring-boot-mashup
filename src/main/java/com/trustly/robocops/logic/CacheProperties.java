@@ -7,6 +7,9 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.validation.annotation.Validated;
+
+@Validated
 public class CacheProperties {
 
     private int timeoutMs = 10000;

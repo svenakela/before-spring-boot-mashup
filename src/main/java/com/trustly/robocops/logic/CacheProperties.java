@@ -1,7 +1,11 @@
 package com.trustly.robocops.logic;
 
+import java.nio.file.Path;
+import java.time.Duration;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 public class CacheProperties {
 
@@ -10,6 +14,30 @@ public class CacheProperties {
     @Min(10)
     @Max(65536)
     private int maxSize = 100;
+
+    public static class Redundancy {
+
+        @NotEmpty
+        private Path fileName;
+
+        private Duration saveInterval;
+
+        public Path getFileName() {
+            return fileName;
+        }
+
+        public void setFileName(final Path fileName) {
+            this.fileName = fileName;
+        }
+
+        public Duration getSaveInterval() {
+            return saveInterval;
+        }
+
+        public void setSaveInterval(final Duration saveInterval) {
+            this.saveInterval = saveInterval;
+        }
+    }
 
     public int getTimeoutMs() {
         return timeoutMs;

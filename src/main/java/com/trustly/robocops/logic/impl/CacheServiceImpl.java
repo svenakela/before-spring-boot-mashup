@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.annotation.PreDestroy;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,4 +41,10 @@ public class CacheServiceImpl implements CacheService {
         LOGGER.debug("Someone requested all from cache. Max size is set to {}", properties.getMaxSize());
         return new ArrayList<>(map.values());
     }
+
+    @PreDestroy
+    public void teardown() {
+        LOGGER.debug("We are shutting down and now lets close this Cache Service.");
+    }
+
 }
